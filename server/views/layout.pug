@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='Andrew Sheppard')
+    meta(name='robots', content='index, follow')
+
+    title
+      block title
+        | Ab-Initio
+
+    link(rel='shortcut icon', href='/img/favicon.ico')
+    link(rel='stylesheet', href='/css/vendor-bundle.min.css')
+    link(rel='stylesheet', href='/css/app-bundle.min.css')
+    // TODO: link(rel='copyright', href='[[Ab-Initio Copyright Url]]')
+
+    include ./includes/compatibility.pug
+  body
+    header
+      include ./includes/navbar.pug
+
+    main
+      block main
+
+      footer &copy; 2017 Ab-Initio
+
+    script(src='/js/vendor-bundle.min.js')
+    script(src='/js/app-bundle.min.js')
+
+    script(src='https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8', id='facebook-jssdk', async, defer)
+
+    include ./includes/google-recaptcha.pug
+    include ./includes/google-analytics.pug

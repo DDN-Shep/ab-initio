@@ -1,0 +1,15 @@
+script.
+  (function() {
+    'use strict';
+
+    window.onRecaptchaLoaded = function() {
+      if (window.grecaptcha) window.grecaptcha.render('recaptcha', {
+        sitekey: 'TODO',
+        callback: function onRecaptchaVerified() {
+          console.log('Verified', arguments);
+        }
+      });
+    };
+  })();
+
+script(src='https://google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit', async, defer)
