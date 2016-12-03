@@ -12,12 +12,13 @@ html
       block title
         | Ab-Initio
 
-    link(rel='shortcut icon', href='/img/favicon.ico')
-    link(rel='stylesheet', href='/css/vendor-bundle.min.css')
-    link(rel='stylesheet', href='/css/app-bundle.min.css')
-    // TODO: link(rel='copyright', href='[[Ab-Initio Copyright Url]]')
+    link(rel='shortcut icon', href='/favicon.ico')
+    link(rel='stylesheet', href='/css/lib.css')
+    link(rel='stylesheet', href='/css/app.css')
+    link(rel='copyright', href='/copyright.html')
 
     include ./includes/compatibility.pug
+    include ./includes/application-insights.pug
   body
     header
       include ./includes/navbar.pug
@@ -25,10 +26,11 @@ html
     main
       block main
 
-      footer &copy; 2017 Ab-Initio
+    footer
+      include ./includes/footer.pug
 
-    script(src='/js/vendor-bundle.min.js')
-    script(src='/js/app-bundle.min.js')
+    script(src='/js/lib.js')
+    script(src='/js/app.js')
 
     script(src='https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8', id='facebook-jssdk', async, defer)
 

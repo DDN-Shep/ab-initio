@@ -1,0 +1,175 @@
+section.banner
+  .owl-carousel
+    each value, index in [1, 2, 3]
+      .banner-item(data-index=index)
+
+.ui.stackable.grid
+  .two.wide.column
+  .twelve.wide.column
+    section.welcome
+      .ui.three.cards
+        each value, index in [1, 2, 3]
+          .ui.card(data-index=index)
+            .content
+              .ui.header Item header
+            .image
+              img(src='//placehold.it/150x100')
+
+.ui.stackable.two.column.grid
+  .ten.wide.column
+    section.featured
+      h4.ui.horizontal.divider.header
+        span Featured
+        a(href='#') See more
+      .owl-carousel
+        each value, index in [0, 1, 2, 3, 4, 5]
+          .ui.card(data-index=index)
+            .content
+              .ui.header Item header
+              a.ui.red.right.ribbon.label Featured
+              .meta
+                span.right.floated.time Sometime
+                span.category= 'Meta item ' + value
+            .image
+              img(src='//placehold.it/150x150')
+              .ui.bottom.left.corner.label
+                i.like.icon
+              .ui.bottom.right.corner.label
+                i.star.icon
+
+    section.trending
+      h4.ui.horizontal.divider.header
+        span Trending
+        a(href='#') See more
+      .owl-carousel
+        each value, index in [0, 1, 2, 3, 4, 5]
+          .ui.card(data-index=index)
+            .content
+              .ui.header Item header
+              .meta
+                span.right.floated.time Sometime
+                span.category= 'Meta item ' + value
+            .image
+              img(src='//placehold.it/150x150')
+              .ui.bottom.left.corner.label
+                i.like.icon
+              .ui.bottom.right.corner.label
+                i.star.icon
+
+    section.coming-soon
+      h4.ui.horizontal.divider.header
+        span Coming Soon...
+        a(href='#') See more
+      .owl-carousel
+        each value, index in [0, 1, 2, 3, 4, 5]
+          .ui.card(data-index=index)
+            .content
+              .ui.header Item header
+              .meta
+                span.right.floated.time Sometime
+                span.category= 'Meta item ' + value
+            .image
+              img(src='//placehold.it/150x150')
+              .ui.bottom.left.corner.label
+                i.like.icon
+              .ui.bottom.right.corner.label
+                i.star.icon
+
+  .six.wide.column
+    section.feed
+      h4.ui.horizontal.divider.header
+        span Feed
+      .ui.feed
+        .event
+          .label
+            img(src='//placehold.it/50x50')
+          .content
+            .summary
+              a.user Elliot Fu
+              |  added you as a friend
+              .date 1 Hour Ago
+            .meta
+              a.like
+                i.like.icon
+                | 4 Likes
+        .event
+          .label
+            img(src='//placehold.it/50x50')
+          .content
+            .summary
+              a Helen Troy
+              |  added
+              a 2 new illustrations
+              .date 4 days ago
+            .extra.images
+              a
+                img(src='//placehold.it/50x50')
+              a
+                img(src='//placehold.it/50x50')
+            .meta
+              a.like
+                i.like.icon
+                |  1 Like
+        .event
+          .label
+            img(src='//placehold.it/50x50')
+          .content
+            .summary
+              a.user Jenny Hess
+              |  added you as a friend
+              .date 2 Days Ago
+            .meta
+              a.like
+                i.like.icon
+                |  8 Likes
+        .event
+          .label
+            img(src='//placehold.it/50x50')
+          .content
+            .summary
+              a Joe Henderson
+              |  posted on his page
+              .date 3 days ago
+            .extra.text Ours is a life of constant reruns. We're always circling back to where we'd we started, then starting all over again. Even if we don't run extra laps that day, we surely will come back for more of the same another day soon.
+            .meta
+              a.like
+                i.like.icon
+                |  5 Likes
+        .event
+          .label
+            img(src='//placehold.it/50x50')
+          .content
+            .summary
+              a Justen Kitsune
+              |  added
+              a 2 new photos
+              |  of you
+              .date 4 days ago
+            .extra.images
+              a
+                img(src='//placehold.it/50x50')
+              a
+                img(src='//placehold.it/50x50')
+            .meta
+              a.like
+                i.like.icon
+                |  41 Likes
+
+
+section.recently-viewed
+  h5.ui.horizontal.divider.header
+    span Recently Viewed
+  .owl-carousel
+    each value, index in [0, 1, 2, 3, 4, 5]
+      .ui.card(data-index=index)
+        .content
+          .ui.header Item header
+          .meta
+            span.right.floated.time Sometime
+            span.category= 'Meta item ' + value
+        .image
+          img(src='//placehold.it/150x150')
+          .ui.bottom.left.corner.label
+            i.like.icon
+          .ui.bottom.right.corner.label
+            i.star.icon

@@ -1,0 +1,215 @@
+body {
+  > header {
+    > nav {
+      .ui.menu {
+        border-radius: 0;
+
+        &:first-child {
+          margin-bottom: 0;
+          border-bottom-width: 0;
+        }
+
+        &:last-child {
+          margin-top: 0;
+          margin-bottom: 0;
+          border-top-width: 0;
+        }
+
+        .menu.fluid {
+          &, > .item {
+            flex: 1 1 auto;
+          }
+        }
+
+        .item {
+          &:before {
+            display: none;
+          }
+        }
+      }
+
+      .ui.breadcrumb {
+        &:last-child {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+  > main {
+    padding: 0 5%;
+
+    section.banner {
+      margin-bottom: 1rem;
+
+      > .ui.container {
+        background-image: url('//placehold.it/1000x250');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 22.5em;
+      }
+
+      .banner-item {
+        height: 22.5rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &[data-index='0'] {
+          background-image: url('//placehold.it/1001x250');
+        }
+
+        &[data-index='1'] {
+          background-image: url('//placehold.it/1002x250');
+        }
+
+        &[data-index='2'] {
+          background-image: url('//placehold.it/1003x250');
+        }
+
+        &[data-index='3'] {
+          background-image: url('//placehold.it/1004x250');
+        }
+      }
+    }
+
+    section.welcome {
+      margin-top: 2rem;
+
+      .ui.card {
+        border-width: 0;
+        box-shadow: none;
+
+        * {
+          border-radius: 0 !important; // !Semantic
+        }
+
+        > .content {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          text-align: center;
+          background-color: rgba(0, 0, 0, .25);
+          height: 4em;
+          width: 80%;
+          z-index: 1;
+          border-radius: 0 !important; // !Semantic
+        }
+      }
+    }
+
+    section.featured,
+    section.trending,
+    section.coming-soon,
+    section.feed,
+    section.recently-viewed {
+      margin-top: 2rem;
+
+      .ui.card {
+        border-width: 0;
+        box-shadow: none;
+        width: 100%;
+
+        * {
+          border-radius: 0 !important; // !Semantic
+        }
+
+        > .content {
+          position: absolute;
+          background-color: rgba(255, 255, 255, .5);
+          width: 100%;
+          z-index: 1;
+        }
+
+        > .extra.content {
+          top: auto;
+          bottom: 0;
+        }
+      }
+
+      .ui.divider.header {
+        a[href] {
+          font-size: .8em;
+          margin-left: .5em;
+        }
+      }
+    }
+  }
+
+  > footer {
+    margin-top: 2rem;
+
+    :not(.icon).copyright {
+      color: rgba(0, 0, 0, .5);
+
+      &:hover {
+        color: rgba(0, 0, 0, 1);
+      }
+    }
+  }
+}
+
+.ui.card {
+  > .content {
+    > .header {
+      font-size: 1em;
+      margin-bottom: 0;
+    }
+
+    > .meta {
+      font-size: .8em;
+    }
+  }
+
+  .label {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 1rem);
+    z-index: 99999;
+  }
+}
+
+.ui.bottom.right.corner.label,
+.ui.bottom.left.corner.label {
+  top: auto;
+  left: auto;
+  bottom: -1px;
+
+  .icon {
+    top: 1.8em;
+  }
+}
+
+.ui.bottom.left.corner.label:after {
+  border-top: 0 solid transparent;
+  border-right: 4em solid transparent;
+  border-bottom: 4em solid #E8E8E8;
+  border-left: 0 solid transparent;
+}
+
+.ui.bottom.right.corner.label:after {
+  border-top: 0 solid transparent;
+  border-right: 0 solid transparent;
+  border-bottom: 4em solid #E8E8E8;
+  border-left: 4em solid transparent;
+}
+
+.ui.horizontal.divider.header {
+  &:before {
+    width: 10%;
+  }
+
+  &:after {
+    width: 100%;
+  }
+}
+
+.debug {
+  background-color: red;
+  border: 1px solid red;
+  //padding: 1em;
+}
