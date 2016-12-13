@@ -7,24 +7,25 @@ let express = require('express'),
     spdy = require('spdy');
 
 module.exports = ((app) => {
-  let client = path.join(__dirname, '/client'),
-      icon = path.join(client, '/favicon.ico'),
-      index = path.join(client, '/index.html'),
+  let client = path.join(__dirname, 'client'),
+      icon = path.join(client, 'favicon.ico'),
+      index = path.join(client, 'index.html'),
+      env = process.env.NODE_ENV || 'development',
       port = process.env.PORT || 1337;
 
   app.use(favicon(icon));
   app.use(express.static(client));
 
+  app.set('port', port);
+
   app.get('*', (req, res) => {
     res.sendFile(index);
   });
 
-  app.set('port', port);
-
   const options = {
-      key: fs.readFileSync(path.join(__dirname, '/server.key')),
-      cert:  fs.readFileSync(path.join(__dirname, '/server.crt'))
-  }
+    key: fs.readFileSync(path.join(__dirname, 'server/certificates', env, 'server.key')),
+    cert:  fs.readFileSync(path.join(__dirname, 'server/certificates', env, 'server.crt'))
+  };
 
   let server = spdy.createServer(options, app).listen(port, (error) => {
     if (error) {
