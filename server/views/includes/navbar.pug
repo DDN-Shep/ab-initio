@@ -1,15 +1,34 @@
 ﻿nav
-  .ui.menu.borderless
+  .ui.top.attached.menu.borderless
+    .ui.container
+      .ui.header.item Company l
+      .ui.item.category.search.fluid(style='flex: 1')
+        .ui.icon.input
+          input(type='text', placeholder='Search...', autocomplete='off')
+          i.search.link.icon
+        .results
+      .right.menu
+        a.item Advertisement
+
+
+//  .ui.menu.borderless
     .ui.container
       .header.item Company logo
       .menu.fluid
         .item
-          .ui.action.left.icon.input.fluid
-            i.search.icon
-            input(type='text', placeholder='Search')
-            button.ui.button Submit
+          .ui.category.search.fluid
+            .ui.icon.input
+              input(type='text', placeholder='Search animals...')
+              i.search.icon
+            .results
       .right.menu
         a.item Advertisement
+//.ui.menu
+  .ui.category.search.item.focus
+    .ui.transparent.icon.input
+      input.prompt(type='text', placeholder='Search animals...', autocomplete='off')
+      i.search.link.icon
+    .results
 
   .ui.menu.borderless
     .ui.container

@@ -9,7 +9,7 @@ let express = require('express'),
     port = process.env.PORT || 1337;
 
 module.exports = ((app) => {
-  app.use(favicon('./client/favicon.ico'));
+  app.use(favicon('./client/img/favicon.ico'));
   app.use(express.static('./client'));
 
   app.set('port', port);
@@ -17,7 +17,7 @@ module.exports = ((app) => {
   app.set('view engine', 'pug');
 
   const routes = {
-    '/': './server/routes/search.js'
+    '/search': './server/routes/search.js'
   };
 
   Object.keys(routes).forEach((i) => app.use(i, require(routes[i])));

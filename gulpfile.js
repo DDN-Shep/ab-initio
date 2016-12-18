@@ -7,7 +7,6 @@ let gulp = require('gulp'),
     cssmin = require('gulp-cssmin'),
     data = require('gulp-data'),
     eslint = require('gulp-eslint'),
-    filter = require('gulp-filter'),
     pug = require('gulp-pug'),
     rename = require('gulp-rename'),
     robots = require('gulp-robots'),
@@ -18,8 +17,8 @@ let gulp = require('gulp'),
     zip = require('gulp-zip'),
     path = require('path'),
     fs = require('fs'),
+    nodemon = require('nodemon'),
     sequence = require('run-sequence'),
-    historyApi = require('connect-history-api-fallback'),
     browserSync = require('browser-sync');
 
 let settings = {
@@ -65,9 +64,7 @@ gulp.task('clean', () => {
 
 gulp.task('images', () => {
   return gulp.src('./server/images/**')
-    .pipe(gulp.dest('./client/img'))
-    .pipe(filter('**/favicon.ico'))
-    .pipe(gulp.dest('./client'));
+    .pipe(gulp.dest('./client/img'));
 });
 
 gulp.task('fonts', () => {
@@ -124,7 +121,7 @@ gulp.task('partials', () => {
 });
 
 gulp.task('views', ['partials'], () => {
-  return gulp.src('./server/views/pages/**/*.pug')
+  return gulp.src('./server/views/static/**/*.pug')
     .pipe(data((file) => {
       return require(settings.config);
     }))
@@ -158,13 +155,27 @@ gulp.task('robots', () => {
     .pipe(gulp.dest('./client'));
 });
 
-gulp.task('browser-sync', () => {
-  return browserSync.create().init(['./client/**'], {
-    server: {
-      baseDir: './client',
-      middleware: [historyApi()]
-    }
+gulp.task('browser-sync', ['nodemon'], () => {
+  browserSync.create().init({
+    proxy: 'https://localhost:1337',
+    port: 3000,
+    files: ['./client/**']
+    // httpModule: 'http2' // Not supported for proxy servers, yet...
   });
+});
+
+gulp.task('nodemon', (next) => {
+  var started = false;
+
+  return nodemon({
+      script: './server.js'
+    })
+    .on('start', () => {
+      if (!started) {
+        next();
+        started = true; // Prevent nodemon being started multiple times
+      }
+    });
 });
 
 gulp.task('watch', () => {
@@ -201,8 +212,10 @@ gulp.task('seo', ['robots', 'sitemap']);
 
 gulp.task('build', ['images', 'styles', 'scripts', 'views', 'seo']);
 
-gulp.task('default', ['build', 'watch', 'browser-sync']);
+gulp.task('default', () => {
+  return sequence('build', 'watch', 'browser-sync');
+});
 
 gulp.task('rebuild', () => {
-  return sequence('clean', ['build']);
+  return sequence('clean', 'build');
 });

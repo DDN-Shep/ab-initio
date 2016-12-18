@@ -1,0 +1,49 @@
+section.search-results
+  .ui.stackable.two.column.grid.container
+    .five.wide.column
+      .ui.vertical.menu.fluid
+        .item
+          .ui.input
+            input(type='text', placeholder='Search...')
+        .item
+          span Home
+          .menu
+            a.active.item Search
+            a.item Add
+            a.item Remove
+        a.item
+          i.grid.layout.icon
+          span Browse
+        a.item
+          span Messages
+        .ui.dropdown.item
+          span More
+          i.dropdown.icon
+          .menu
+            a.item
+              i.edit.icon
+              span Edit Profile
+            a.item
+              i.globe.icon
+              span Choose Language
+            a.item
+              i.settings.icon
+              span Account Settings
+
+    .eight.wide.column
+      .ui.divided.items
+        each i in [1, 2, 3, 4, 5]
+          .item
+            .image
+              img(src='//placehold.it/150x100')
+            .content
+              a.header Example item #{i}
+              .meta
+                span Subtitle #{i}
+              .description
+                p Example description for item #{i}
+              .extra
+                .ui.label Tag #{i}
+                .ui.label
+                  i.globe.icon
+                  span Icon tag
